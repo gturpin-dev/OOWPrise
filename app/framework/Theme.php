@@ -130,7 +130,7 @@ final class Theme {
 	 *
 	 * @return array<array-key, mixed>|false|string The theme's version.
 	 */
-	public function get_version(): string {
+	public function get_version(): mixed {
 		return $this->theme_data->get( 'Version' );
 	}
 }

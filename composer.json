@@ -23,5 +23,8 @@
     ],
     "require": {
 		"php": ">=8.1"
+	},
+	"require-dev": {
+		"vimeo/psalm": "^5.6"
 	}
 }

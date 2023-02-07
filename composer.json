@@ -25,6 +25,7 @@
 		"php": ">=8.1"
 	},
 	"require-dev": {
-		"vimeo/psalm": "^5.6"
+		"vimeo/psalm": "^4",
+		"humanmade/psalm-plugin-wordpress": "^2.1"
 	}
 }

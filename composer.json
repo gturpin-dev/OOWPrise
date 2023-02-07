@@ -1,0 +1,17 @@
+{
+	"$schema": "https://getcomposer.org/schema.json",
+    "name": "gturpin/oowprise",
+    "autoload": {
+        "psr-4": {
+            "OOWPrise\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "gturpin-dev",
+            "email": "guillaume.turpin45@gmail.com",
+			"homepage": "https://github.com/gturpin-dev"
+        }
+    ],
+    "require": {}
+}

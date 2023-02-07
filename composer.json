@@ -1,5 +1,13 @@
 {
 	"$schema": "https://getcomposer.org/schema.json",
+	"version": "1.0.0",
+	"type": "wordpress-theme",
+	"keywords": [
+		"wordpress",
+		"theme",
+		"starter theme",
+		"oowprise"
+	],
     "name": "gturpin/oowprise",
     "autoload": {
         "psr-4": {
@@ -9,9 +17,10 @@
     "authors": [
         {
             "name": "gturpin-dev",
-            "email": "guillaume.turpin45@gmail.com",
 			"homepage": "https://github.com/gturpin-dev"
         }
     ],
-    "require": {}
+    "require": {
+		"php": ">=8.1"
+	}
 }

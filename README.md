@@ -17,7 +17,15 @@ composer create-project gturpin-dev/oowprise
 
 ## Usage
 
-TODO: Write usage instructions
+You have a built-in development environment that you can use to develop your theme.
+
+It requires [Docker](https://www.docker.com/) and [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) to be installed on your machine.
+
+To start it, run the following command :
+
+```sh
+wp-env start
+```
 
 ## Contributing
 

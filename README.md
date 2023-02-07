@@ -17,7 +17,7 @@ composer create-project gturpin-dev/oowprise
 
 ## Usage
 
-You have a built-in development environment that you can use to develop your theme.
+You have a built-in development environment that you can use to develop your theme without a WP installation.
 
 It requires [Docker](https://www.docker.com/) and [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) to be installed on your machine.
 

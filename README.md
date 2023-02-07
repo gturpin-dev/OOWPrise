@@ -5,10 +5,6 @@ OOWPrise is a WordPress starter theme that heavily employs object-oriented progr
   <img src="./logo.png" alt="OOWPrise Logo">
 </p>
 
-# OOWPrise
-
-OOWPrise is a WordPress starter theme that heavily employs object-oriented programming techniques.
-
 ## Installation
 
 You can install OOWPrise using the following methods:

@@ -35,7 +35,8 @@ final class Theme {
 	/**
 	 * The theme's data
 	 * @see https://developer.wordpress.org/reference/classes/wp_theme/
-	 * @var WP_Theme
+	 * @var \WP_Theme
+	 * @psalm-suppress UndefinedClass
 	 */
 	private \WP_Theme $theme_data;
 
@@ -57,6 +58,7 @@ final class Theme {
 	 * The theme's constructor.
 	 * Called only once by the init() method.
 	 * Store the theme's data and load the theme's features.
+	 * @psalm-suppress UndefinedConstant
 	 */
 	private function __construct() {
 		if ( ! function_exists( 'wp_get_theme' ) ) {
@@ -100,7 +102,8 @@ final class Theme {
 	/**
 	 * Get the theme's data.
 	 *
-	 * @return WP_Theme The theme's data.
+	 * @return \WP_Theme The theme's data.
+	 * @psalm-suppress UndefinedClass
 	 */
 	public function get_theme_data(): \WP_Theme {
 		return $this->theme_data;
@@ -128,6 +131,7 @@ final class Theme {
 	 * Get the theme's version.
 	 *
 	 * @return string The theme's version.
+	 * @psalm-suppress UndefinedClass
 	 */
 	public function get_version(): string {
 		return $this->theme_data->get( 'Version' );

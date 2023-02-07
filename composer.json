@@ -11,7 +11,7 @@
     "name": "gturpin/oowprise",
     "autoload": {
         "psr-4": {
-            "OOWPrise\\": "src/"
+            "OOWPrise\\": "app/src/"
         }
     },
     "authors": [

@@ -12,10 +12,18 @@ OOWPrise is a WordPress starter theme that heavily employs object-oriented progr
 
 You can install OOWPrise using the following methods:
 
-### via Composer CLI
-
 ```sh
 composer create-project gturpin-dev/oowprise
+```
+
+After that, you must install the theme's dependencies :
+
+```sh
+composer install
+npm install
+
+# Or with the provided Makefile
+make install
 ```
 
 ## Usage
@@ -29,21 +37,43 @@ You have access to the following commands :
 ```sh
 wp-env start # Start the development environment
 wp-env stop # Stop the development environment
+
+# Or with the provided Makefile
+make server:start
+make server:stop
 ```
 
-Install dependencies :
+## Documentation
+
+### Build assets
+
+To build assets, you can use the following commands :
 
 ```sh
-composer install
-npm install
+npm run start:theme # Watch CSS/JS assets for development
+npm run build:theme # Build CSS/JS assets for production
 ```
 
-You can wrap everything above with the provided Makefile :
+### Gutenberg blocks
+
+OOWPrise comes with a built-in block system that allows you to create blocks in a simple way.
+
+You can create a new block using the following command :
 
 ```sh
-make install # Install dependencies
-make server:start # Start the development environment
-make server:stop # Stop the development environment
+make create-block
+
+# Or with slug parameter to skip the prompt
+make create-block slug=your-block-slug
+```
+
+This command will create a new block in the `resources/blocks` directory. Refer to the [@wordpres/create-block documentation](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-create-block/) for more information.
+
+To build your block, you can use the following command :
+
+```sh
+npm run start:blocks # Watch blocks for development
+npm run build:blocks # Build blocks for production
 ```
 
 ## Contributing
@@ -56,4 +86,4 @@ TODO: Write credits
 
 ## License
 
-The OOWPrise theme is open-sourced software licensed under the [MIT license](LICENSE.md).
+The OOWPrise starter theme is open-sourced software licensed under the [MIT license](LICENSE.md).

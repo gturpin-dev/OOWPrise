@@ -2,6 +2,7 @@
 
 # Variables
 blocks_path = resources/blocks
+build_path = build
 
 # Commands
 help: ## Display this help message
@@ -33,3 +34,9 @@ create-block: ## Create a new block with @wordpress/create-block (make create-bl
 
 zip: ## Generate a ready-to-use version of the theme
 	npm run theme-zip
+
+clean: ## Remove all generated files
+	rm -rf $(build_path)
+	rm -rf *.zip
+	rm -rf node_modules
+	rm -rf vendor

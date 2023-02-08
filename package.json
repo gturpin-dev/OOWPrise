@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/package.json",
+  "name": "oowprise",
+  "version": "1.0.0",
+  "description": "OOWPrise is a WordPress starter theme that heavily employs object-oriented programming techniques.",
+  "scripts": {
+    "start:theme": "wp-scripts start resources/scripts/index.js --output-path=build/theme",
+    "start:blocks": "wp-scripts start --webpack-src-dir=resources/blocks --output-path=build/blocks --webpack-copy-php"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gturpin-dev/OOWPrise.git"
+  },
+  "author": "Guillaume TURPIN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gturpin-dev/OOWPrise/issues"
+  },
+  "homepage": "https://github.com/gturpin-dev/OOWPrise#readme",
+  "dependencies": {
+    "@wordpress/scripts": "^25.3.0"
+  }
+}

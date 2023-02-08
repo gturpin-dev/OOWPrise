@@ -12,7 +12,7 @@ OOWPrise is a WordPress starter theme that heavily employs object-oriented progr
 
 You can install OOWPrise using the following methods:
 
-### Classic Composer Install
+### via Composer CLI
 
 ```sh
 composer create-project gturpin-dev/oowprise
@@ -24,10 +24,26 @@ You have a built-in development environment that you can use to develop your the
 
 It requires [Docker](https://www.docker.com/) and [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) to be installed on your machine.
 
-To start it, run the following command :
+You have access to the following commands :
 
 ```sh
-wp-env start
+wp-env start # Start the development environment
+wp-env stop # Stop the development environment
+```
+
+Install dependencies :
+
+```sh
+composer install
+npm install
+```
+
+You can wrap everything above with the provided Makefile :
+
+```sh
+make install # Install dependencies
+make server:start # Start the development environment
+make server:stop # Stop the development environment
 ```
 
 ## Contributing

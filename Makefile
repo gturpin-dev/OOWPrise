@@ -1,4 +1,4 @@
-.PHONY: help init dev test test-group lint create-block
+.PHONY: help init dev test test-group lint create-block zip
 
 # Variables
 blocks_path = resources/blocks
@@ -30,3 +30,6 @@ lint: ## Run Psalm static analysis
 create-block: ## Create a new block with @wordpress/create-block (make create-block slug=test-block)
 	cd $(blocks_path) && \
 	npx @wordpress/create-block $(slug) --no-plugin
+
+zip: ## Generate a ready-to-use version of the theme
+	npm run theme-zip

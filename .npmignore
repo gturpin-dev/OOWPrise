@@ -1,0 +1,4 @@
+resources/ # resources for the project
+node_modules/ # node modules
+tests/ # unit tests
+docs/ # documentation

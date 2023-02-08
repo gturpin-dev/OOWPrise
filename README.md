@@ -76,6 +76,19 @@ npm run start:blocks # Watch blocks for development
 npm run build:blocks # Build blocks for production
 ```
 
+## Deployment
+
+You can deploy your theme using the following command :
+
+```sh
+npm run theme-zip
+
+# Or with the provided Makefile
+make zip
+```
+
+This command will create a zip archive of your theme that can be uploaded to a WordPress installation.
+
 ## Contributing
 
 TODO: Write contribution guidelines

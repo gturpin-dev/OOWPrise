@@ -1,31 +1,31 @@
 {
-	"$schema": "https://getcomposer.org/schema.json",
-	"version": "1.0.0",
-	"type": "wordpress-theme",
-	"keywords": [
-		"wordpress",
-		"theme",
-		"starter theme",
-		"oowprise"
-	],
-    "name": "gturpin/oowprise",
-    "autoload": {
-        "psr-4": {
-            "OOWPrise\\": "app/framework/",
-			"App\\": "app/src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "gturpin-dev",
-			"homepage": "https://github.com/gturpin-dev"
-        }
-    ],
-    "require": {
-		"php": ">=8.1"
-	},
-	"require-dev": {
-		"vimeo/psalm": "^4",
-		"humanmade/psalm-plugin-wordpress": "^2.1"
-	}
+  "$schema": "https://getcomposer.org/schema.json",
+  "version": "1.0.0",
+  "type": "wordpress-theme",
+  "keywords": [
+    "wordpress",
+    "theme",
+    "starter theme",
+    "oowprise"
+  ],
+  "name": "gturpin/oowprise",
+  "autoload": {
+    "psr-4": {
+      "OOWPrise\\": "app/framework/",
+      "App\\": "app/src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "gturpin-dev",
+      "homepage": "https://github.com/gturpin-dev"
+    }
+  ],
+  "require": {
+    "php": ">=8.1"
+  },
+  "require-dev": {
+    "vimeo/psalm": "^4",
+    "humanmade/psalm-plugin-wordpress": "^2.1"
+  }
 }

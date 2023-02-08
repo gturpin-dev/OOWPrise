@@ -1,4 +1,4 @@
-.PHONY: help init dev test test-group lint create-block zip
+.PHONY: help init dev test test-group lint create-block zip clean
 
 # Variables
 blocks_path = resources/blocks
@@ -27,6 +27,25 @@ test-group: ## Run phpunit tests based on the group in "group" variable (make te
 lint: ## Run Psalm static analysis
 	./vendor/bin/psalm
 
+clean: ## Remove all generated files
+	rm -rf $(build_path)
+	rm -rf *.zip
+	rm -rf node_modules
+	rm -rf vendor
+
+##### Theme Assets #####
+start\:theme: ## Watch CSS/JS assets for development
+	npm run start:theme
+
+build\:theme: ## Build CSS/JS assets for production
+	npm run build:theme
+
+start\:blocks: ## Watch blocks for development
+	npm run start:blocks
+
+build\:blocks: ## Build blocks for production
+	npm run build:blocks
+
 ##### Builder file helpers #####
 create-block: ## Create a new block with @wordpress/create-block (make create-block slug=test-block)
 	cd $(blocks_path) && \
@@ -34,9 +53,3 @@ create-block: ## Create a new block with @wordpress/create-block (make create-bl
 
 zip: ## Generate a ready-to-use version of the theme
 	npm run theme-zip
-
-clean: ## Remove all generated files
-	rm -rf $(build_path)
-	rm -rf *.zip
-	rm -rf node_modules
-	rm -rf vendor

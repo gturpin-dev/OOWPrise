@@ -5,7 +5,10 @@
   "description": "OOWPrise is a WordPress starter theme that heavily employs object-oriented programming techniques.",
   "scripts": {
     "start:theme": "wp-scripts start resources/scripts/index.js --output-path=build/theme",
-    "start:blocks": "wp-scripts start --webpack-src-dir=resources/blocks --output-path=build/blocks --webpack-copy-php"
+    "build:theme": "wp-scripts build resources/scripts/index.js --output-path=build/theme",
+
+    "start:blocks": "wp-scripts start --webpack-src-dir=resources/blocks --output-path=build/blocks --webpack-copy-php",
+    "build:blocks": "wp-scripts build --webpack-src-dir=resources/blocks --output-path=build/blocks --webpack-copy-php"
   },
   "repository": {
     "type": "git",

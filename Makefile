@@ -1,7 +1,7 @@
-.PHONY: help init dev test test-group lint
+.PHONY: help init dev test test-group lint create-block
 
 # Variables
-
+blocks_path = resources/blocks
 
 # Commands
 help: ## Display this help message
@@ -25,3 +25,8 @@ test-group: ## Run phpunit tests based on the group in "group" variable (make te
 
 lint: ## Run Psalm static analysis
 	./vendor/bin/psalm
+
+##### Builder file helpers #####
+create-block: ## Create a new block with @wordpress/create-block (make create-block slug=test-block)
+	cd $(blocks_path) && \
+	npx @wordpress/create-block $(slug) --no-plugin

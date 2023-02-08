@@ -11,8 +11,11 @@ init: ## Install project dependencies
 	composer install
 	npm install
 
-dev: ## Launch wp-env dev server at localhost:8888 by default
+server\:start: ## Launch wp-env dev server at localhost:8888 by default
 	wp-env start
+
+server\:stop: ## Stop wp-env dev server
+	wp-env stop
 
 test: ## Run all phpunit tests
 	./vendor/bin/phpunit tests

@@ -52,6 +52,10 @@ To build assets, you can use the following commands :
 ```sh
 npm run start:theme # Watch CSS/JS assets for development
 npm run build:theme # Build CSS/JS assets for production
+
+# Or with the provided Makefile
+make start:theme
+make build:theme
 ```
 
 ### Gutenberg blocks
@@ -74,6 +78,10 @@ To build your block, you can use the following command :
 ```sh
 npm run start:blocks # Watch blocks for development
 npm run build:blocks # Build blocks for production
+
+# Or with the provided Makefile
+make start:blocks
+make build:blocks
 ```
 
 ## Deployment

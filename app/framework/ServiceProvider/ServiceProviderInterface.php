@@ -9,6 +9,7 @@ interface ServiceProviderInterface {
 
 	/**
 	 * Define all the necessary bindings and dependencies for the service.
+	 * The method is executed when the service is registered.
 	 *
 	 * @return void
 	 */

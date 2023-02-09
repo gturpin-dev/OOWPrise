@@ -86,6 +86,10 @@ final class BlocksFactory extends Singleton {
 	public function register( string $block_slug ): void {
 		$block = new Block( $block_slug, $this->blocks_directory );
 
+		if ( ! is_dir( $this->blocks_directory . DIRECTORY_SEPARATOR . $block_slug ) ) {
+			throw new \Exception( 'The block "' . $block_slug . '" is not found.' );
+		}
+
 		$this->blocks[ $block_slug ] = $block;
 	}
 

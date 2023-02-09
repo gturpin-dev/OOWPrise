@@ -11,8 +11,6 @@
  */
 
 use OOWPrise\Theme;
-use OOWPrise\ServiceProvider\ServiceProviderManager;
-use App\ServiceProviders\ServiceProviderConfig;
 
 // Load composer if it exists.
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {

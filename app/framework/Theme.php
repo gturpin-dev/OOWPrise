@@ -2,7 +2,7 @@
 
 namespace OOWPrise;
 
-use App\ServiceProviders\ServiceProviderConfig;
+use App\ServiceProviderConfig;
 use OOWPrise\ServiceProvider\ServiceProviderManager;
 
 /**

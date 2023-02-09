@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ServiceProviders;
+namespace App\Gutenberg\Blocks;
 
 use OOWPrise\Gutenberg\Blocks\BlocksFactory;
 use OOWPrise\ServiceProvider\ServiceProviderInterface;

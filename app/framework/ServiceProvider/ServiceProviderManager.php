@@ -31,6 +31,12 @@ final class ServiceProviderManager {
 	 */
 	private function register(): void {
 		foreach ( $this->service_providers as &$service_provider ) {
+
+			// Check if the service provider is a class and if it implements the ServiceProviderInterface.
+			if ( ! is_string( $service_provider ) || ! is_subclass_of( $service_provider, ServiceProviderInterface::class ) ) {
+				throw new \Exception( 'The service provider "' . $service_provider . '" must be a valid class and must implement the ServiceProviderInterface.' );
+			}
+
 			$service_provider = new $service_provider();
 			$service_provider->register();
 		}

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ServiceProviders;
+namespace App\Customizer;
 
 use OOWPrise\ServiceProvider\ServiceProviderInterface;
 

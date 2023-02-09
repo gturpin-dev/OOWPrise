@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ServiceProviders;
+namespace App;
 
 /**
  * The service provider configuration.
@@ -17,8 +17,8 @@ final class ServiceProviderConfig {
 	 * @var array<ServiceProviderInterface>
 	 */
 	private static array $service_providers = [
-		\App\ServiceProviders\BlocksServiceProvider::class,
-		\App\ServiceProviders\CustomizerServiceProvider::class,
+		\App\Gutenberg\Blocks\BlocksServiceProvider::class,
+		\App\Customizer\CustomizerServiceProvider::class,
 	];
 
 	/**

@@ -98,15 +98,4 @@ final class BlocksFactory extends Singleton {
 	public function enqueue_blocks(): void {
 		array_walk( $this->blocks, fn( $block ) => $block->register() );
 	}
-
-	/**
-	 * Get a block from the blocks array by its slug.
-	 *
-	 * @param string $block_slug The block slug without namespace.
-	 *
-	 * @return Block|null The block if it exists, null otherwise.
-	 */
-	private function get_block( string $block_slug ): ?Block {
-		return $this->blocks[ $block_slug ] ?? null;
-	}
 }

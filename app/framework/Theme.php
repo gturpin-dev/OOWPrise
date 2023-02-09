@@ -2,6 +2,9 @@
 
 namespace OOWPrise;
 
+use App\ServiceProviders\ServiceProviderConfig;
+use OOWPrise\ServiceProvider\ServiceProviderManager;
+
 /**
  * This class is the entry point of the theme.
  * It is responsible for loading the theme's dependencies and store the theme's information.
@@ -68,6 +71,26 @@ final class Theme {
 		$this->theme_data = wp_get_theme( $this->slug );
 		$this->path       = get_template_directory();
 		$this->url        = get_template_directory_uri();
+		$this->boot();
+	}
+
+	/**
+	 * Boot the theme.
+	 *
+	 * @return void
+	 */
+	private function boot(): void {
+		add_action( 'after_setup_theme', [ $this, 'instanciate_service_providers' ] );
+	}
+
+	/**
+	 * Instanciate the service providers.
+	 *
+	 * @return void
+	 */
+	public function instanciate_service_providers(): void {
+		$service_provider_manager = new ServiceProviderManager( ServiceProviderConfig::get_service_providers() );
+		$service_provider_manager->boot();
 	}
 
 	// Prevent the instance from being cloned.

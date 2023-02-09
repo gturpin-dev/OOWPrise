@@ -26,7 +26,7 @@ final class BlocksServiceProvider implements ServiceProviderInterface {
 
 		// If you want to enqueue a specific block, you can do it like this:
 		// $blocks_factory = BlocksFactory::get_instance();
-		// $blocks_factory->register( 'test' );
+		// $blocks_factory->register( 'my-first-block' );
 		// $blocks_factory->enqueue_blocks();
 	}
 }

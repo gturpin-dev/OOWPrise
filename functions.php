@@ -11,6 +11,8 @@
  */
 
 use OOWPrise\Theme;
+use OOWPrise\ServiceProvider\ServiceProviderManager;
+use App\ServiceProviders\ServiceProviderConfig;
 
 // Load composer if it exists.
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
@@ -21,3 +23,9 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 
 // Init the theme.
 Theme::init();
+
+// Init the service providers.
+add_action( 'after_setup_theme', function() {
+	$service_provider_manager = new ServiceProviderManager( ServiceProviderConfig::get_service_providers() );
+	$service_provider_manager->boot();
+} );

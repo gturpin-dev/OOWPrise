@@ -21,13 +21,14 @@ final class BlocksServiceProvider implements ServiceProviderInterface {
 	 * @inheritDoc
 	 */
 	public function boot(): void {
-		$blocks_factory = BlocksFactory::get_instance();
-		$blocks_factory->register( 'test' );
-		$blocks_factory->register( 'mon-block' );
-		$blocks_factory->enqueue_blocks();
-		// echo '<pre>' . print_r( $blocks_factory, true ) . '</pre>';
-		// var_dump( 'COUCOU JE SUIS LE BLOCKS SERVICE PROVIDER' );
-		// die();
+		// BlocksFactory::$autoload = true;
+		// BlocksFactory::get_instance()->enqueue_blocks();
 
+		// If you want to enqueue a specific block, you can do it like this:
+		$blocks_factory = BlocksFactory::get_instance();
+		$blocks_factory->register( 'my-first-block' );
+		$blocks_factory->register( 'my-second-block' );
+		$blocks_factory->register( 'test' );
+		$blocks_factory->enqueue_blocks();
 	}
 }

@@ -11,7 +11,10 @@ use OOWPrise\Gutenberg\Blocks\Block;
  */
 final class BlocksFactory extends Singleton {
 
-	public static bool $autoload = true;
+	/**
+     * @var bool Whether to automatically load and register all blocks or not.
+     */
+	public static bool $autoload = false;
 
 	/**
 	 * The directory where the blocks are located.
@@ -26,7 +29,6 @@ final class BlocksFactory extends Singleton {
 	private array $blocks = [];
 
 	protected function __construct() {
-		$this->blocks_directory = Theme::get_instance()->get_path() . '/build/blocks';
 		$this->init();
 	}
 
@@ -36,6 +38,7 @@ final class BlocksFactory extends Singleton {
 	 * @return void
 	 */
 	private function init(): void {
+		$this->blocks_directory = Theme::get_instance()->get_path() . '/build/blocks';
 		$this->maybe_autoload();
 	}
 
@@ -48,8 +51,8 @@ final class BlocksFactory extends Singleton {
 	private function maybe_autoload(): bool {
 		if ( ! self::$autoload ) return false;
 
-		$blocks       = $this->retrieve_blocks();
-		$blocks       = array_map( fn( $block_slug ) => new Block( $block_slug, $this->blocks_directory ), $blocks );
+		$blocks = $this->retrieve_blocks();
+		$blocks = array_map( fn( $block_slug ) => new Block( $block_slug, $this->blocks_directory ), $blocks );
 
 		// TODO: add a filter to allow the user to modify the blocks before registering them. || Or a maybe_dequeue method.
 		$this->blocks = $blocks;
@@ -74,21 +77,26 @@ final class BlocksFactory extends Singleton {
 	}
 
 	/**
-	 * Register the custom blocks by using block.json file.
-	 * @see https://developer.wordpress.org/reference/functions/register_block_type/
+	 * Add the block to the blocks array.
 	 *
-	 * @param string $block_slug The block slug in the format of namespace/block-name.
+	 * @param string $block_slug The block slug without namespace.
 	 *
 	 * @return void
 	 */
 	public function register( string $block_slug ): void {
-		$block = $this->get_block( $block_slug );
+		$block = new Block( $block_slug, $this->blocks_directory );
 
-		if ( ! $block ) {
-			throw new \Exception( 'The block does not exist.' );
-		}
+		$this->blocks[ $block_slug ] = $block;
+	}
 
-		$block->register();
+	/**
+	 * Register the custom blocks by using block.json file.
+	 * @see https://developer.wordpress.org/reference/functions/register_block_type/
+	 *
+	 * @return void
+	 */
+	public function enqueue_blocks(): void {
+		array_walk( $this->blocks, fn( $block ) => $block->register() );
 	}
 
 	/**
@@ -99,12 +107,6 @@ final class BlocksFactory extends Singleton {
 	 * @return Block|null The block if it exists, null otherwise.
 	 */
 	private function get_block( string $block_slug ): ?Block {
-		$blocks = array_filter( $this->blocks, fn( $block ) => $block->get_slug() === $block_slug );
-
-		if ( empty( $blocks ) ) {
-			return null;
-		}
-
-		return array_shift( $blocks );
+		return $this->blocks[ $block_slug ] ?? null;
 	}
 }

@@ -42,7 +42,7 @@ final class Block {
 		$block = register_block_type( $this->path . DIRECTORY_SEPARATOR . $this->slug );
 
 		if ( is_wp_error( $block ) ) {
-			throw new \Exception( 'Error registering block: ' . $block->get_error_message() );
+			throw new \Exception( 'Error registering block "' . $this->slug . '": ' . $block->get_error_message() );
 		}
 
 		return true;

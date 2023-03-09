@@ -35,36 +35,12 @@ class CPT_Post implements CPTInterface {
 		} );
 
 		$posts->columns()->order( [
-			'cb'          => 0,
-			'id'          => 1,
-			'title'       => 2,
-			'thumbnail'   => 3,
+			'cb'        => 0,
+			'id'        => 1,
+			'title'     => 2,
+			'thumbnail' => 3,
 		] );
 
 		$posts->register();
-
-		// Stylish the admin columns cell
-		add_action( 'admin_head', [ __CLASS__, 'admin_column_styles' ] );
-	}
-
-	/**
-	 * Stylish the admin columns cell
-	 *
-	 * @return void
-	 */
-	public static function admin_column_styles() {
-		echo '<style>
-			body.wp-admin .wp-list-table .column-id {
-				width: 45px !important;
-				text-align: center;
-				overflow: hidden;
-				user-select: all;
-			}
-			body.wp-admin .wp-list-table .column-thumbnail {
-				width: 175px !important;
-				text-align: center;
-				overflow: hidden;
-			}
-		</style>';
 	}
 }

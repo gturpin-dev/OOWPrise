@@ -20,7 +20,7 @@ final class BlocksFactory extends Singleton {
 	 * The directory where the blocks are located.
 	 * @var string
 	 */
-	private string $blocks_directory;
+	public static ?string $blocks_directory = null;
 
 	/**
 	 * The blocks that are registered.
@@ -38,7 +38,7 @@ final class BlocksFactory extends Singleton {
 	 * @return void
 	 */
 	private function init(): void {
-		$this->blocks_directory = Theme::get_instance()->get_path() . '/build/blocks';
+		self::$blocks_directory = self::$blocks_directory ?? Theme::get_instance()->get_path() . '/build/blocks';
 		$this->maybe_autoload();
 	}
 
@@ -51,10 +51,8 @@ final class BlocksFactory extends Singleton {
 	private function maybe_autoload(): bool {
 		if ( ! self::$autoload ) return false;
 
-		$blocks = $this->retrieve_blocks();
-		$blocks = array_map( fn( $block_slug ) => new Block( $block_slug, $this->blocks_directory ), $blocks );
-
-		// TODO: add a filter to allow the user to modify the blocks before registering them. || Or a maybe_dequeue method.
+		$blocks       = $this->retrieve_blocks();
+		$blocks       = array_map( fn( $block_slug ) => new Block( $block_slug, $this->blocks_directory ), $blocks );
 		$this->blocks = $blocks;
 
 		return true;

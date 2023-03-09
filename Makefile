@@ -1,4 +1,4 @@
-.PHONY: help init dev test test-group lint create-block zip clean
+.PHONY: help init dev test test-group lint create-block zip clean start\:theme build\:theme start\:blocks build\:blocks
 
 # Variables
 blocks_path = resources/blocks

@@ -20,6 +20,7 @@ final class ServiceProviderConfig {
 		\App\Gutenberg\Blocks\BlocksServiceProvider::class,
 		\App\Customizer\CustomizerServiceProvider::class,
 		\App\CPT\CPTServiceProvider::class,
+		\App\WordPress\ThemeServiceProvider::class,
 	];
 
 	/**

@@ -6,7 +6,7 @@ use App\CPT\CPT_Post;
 use OOWPrise\ServiceProvider\ServiceProviderInterface;
 
 /**
- * The blocks service provider.
+ * The CPT service provider.
  */
 final class CPTServiceProvider implements ServiceProviderInterface {
 

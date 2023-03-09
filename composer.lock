@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "gturpin/post-type-handler",
-            "version": "0.1.16",
+            "version": "0.1.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gturpin-dev/PostTypeHandler.git",
-                "reference": "8323238b4fdd41e21a0f14b771648f253e41e21a"
+                "reference": "6c08e002f2f40db7367d56afe458e8d36c86d458"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gturpin-dev/PostTypeHandler/zipball/8323238b4fdd41e21a0f14b771648f253e41e21a",
-                "reference": "8323238b4fdd41e21a0f14b771648f253e41e21a",
+                "url": "https://api.github.com/repos/gturpin-dev/PostTypeHandler/zipball/6c08e002f2f40db7367d56afe458e8d36c86d458",
+                "reference": "6c08e002f2f40db7367d56afe458e8d36c86d458",
                 "shasum": ""
             },
             "require": {
@@ -39,9 +39,9 @@
             "description": "Helper class to quickly manage PostType and Taxonomy declarations",
             "support": {
                 "issues": "https://github.com/gturpin-dev/PostTypeHandler/issues",
-                "source": "https://github.com/gturpin-dev/PostTypeHandler/tree/0.1.16"
+                "source": "https://github.com/gturpin-dev/PostTypeHandler/tree/0.1.17"
             },
-            "time": "2022-10-06T12:27:35+00:00"
+            "time": "2023-03-09T11:20:02+00:00"
         }
     ],
     "packages-dev": [

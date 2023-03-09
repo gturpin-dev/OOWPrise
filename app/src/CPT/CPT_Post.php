@@ -22,6 +22,10 @@ class CPT_Post implements CPTInterface {
 	public static function init() {
 		$posts = new PostType( ucfirst( self::$slug ) );
 
+		// Remove the post_tag taxonomy by default
+		$posts->remove_taxonomy( 'post_tag' );
+
+		// Adding columns to the admin list
 		$posts->columns()->add( [
 			'id'        => 'ID',
 			'thumbnail' => __( 'Thumbnail', 'oowprise' ),

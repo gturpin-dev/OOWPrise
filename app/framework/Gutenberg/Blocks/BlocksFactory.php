@@ -52,7 +52,7 @@ final class BlocksFactory extends Singleton {
 		if ( ! self::$autoload ) return false;
 
 		$blocks       = $this->retrieve_blocks();
-		$blocks       = array_map( fn( $block_slug ) => new Block( $block_slug, $this->blocks_directory ), $blocks );
+		$blocks       = array_map( fn( $block_slug ) => new Block( $block_slug, self::$blocks_directory ), $blocks );
 		$this->blocks = $blocks;
 
 		return true;
@@ -64,11 +64,11 @@ final class BlocksFactory extends Singleton {
 	 * @return array<string> The blocks slug.
 	 */
 	private function retrieve_blocks(): array {
-		if ( ! is_dir( $this->blocks_directory ) ) {
+		if ( ! is_dir( self::$blocks_directory ) ) {
 			throw new \Exception( 'The blocks directory does not exist.' );
 		}
 
-		$files = scandir( $this->blocks_directory );
+		$files = scandir( self::$blocks_directory );
 		$files = array_diff( $files, [ '.', '..' ] );
 
 		return $files;

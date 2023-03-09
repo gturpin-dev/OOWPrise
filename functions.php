@@ -21,3 +21,6 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 
 // Init the theme.
 Theme::init();
+
+// Load procedural PHP files
+require_once __DIR__ . '/app/hooks.php';

@@ -29,7 +29,7 @@ final class ThemeServiceProvider implements ServiceProviderInterface {
 	 *
 	 * @return void
 	 */
-	public function load_text_domain() {
+	public function load_text_domain(): void {
 		load_theme_textdomain( 'oowprise', get_template_directory() . DIRECTORY_SEPARATOR . 'languages' );
 	}
 
@@ -38,7 +38,7 @@ final class ThemeServiceProvider implements ServiceProviderInterface {
 	 *
 	 * @return void
 	 */
-	public function theme_support() {
+	public function theme_support(): void {
 		// Support title tag in the head.
 		add_theme_support( 'title-tag' );
 

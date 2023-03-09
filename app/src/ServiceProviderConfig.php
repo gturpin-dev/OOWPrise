@@ -2,6 +2,8 @@
 
 namespace App;
 
+use OOWPrise\ServiceProvider\ServiceProviderInterface;
+
 /**
  * The service provider configuration.
  * The array of service providers is used to register the services.

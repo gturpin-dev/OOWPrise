@@ -19,6 +19,7 @@ final class ServiceProviderConfig {
 	private static array $service_providers = [
 		\App\Gutenberg\Blocks\BlocksServiceProvider::class,
 		\App\Customizer\CustomizerServiceProvider::class,
+		\App\CPT\CPTServiceProvider::class,
 	];
 
 	/**

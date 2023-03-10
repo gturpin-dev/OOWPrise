@@ -7,7 +7,7 @@ use OOWPrise\Helpers\Singleton;
 /**
  * This class aims to provide a simple way to enqueue scripts and styles.
  */
-class Enqueuer extends Singleton {
+class AssetsEnqueuer extends Singleton {
 	private array $scripts = [];
 	private array $stylesheets = [];
 	private array $editor_scripts = [];

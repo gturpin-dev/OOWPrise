@@ -1,6 +1,6 @@
 {
   "$schema": "https://getcomposer.org/schema.json",
-  "name": "gturpin-dev/oowprise",
+  "name": "gturpin/oowprise",
   "type": "wordpress-theme",
   "description": "OOWPrise is a WordPress starter theme that heavily employs object-oriented programming techniques.",
   "keywords": [

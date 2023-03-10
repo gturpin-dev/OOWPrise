@@ -13,7 +13,7 @@ OOWPrise is a WordPress starter theme that heavily employs object-oriented progr
 You can install OOWPrise using the following methods:
 
 ```sh
-composer create-project gturpin-dev/oowprise
+composer create-project gturpin/oowprise
 ```
 
 After that, you must install the theme's dependencies :

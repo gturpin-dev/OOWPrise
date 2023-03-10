@@ -8,7 +8,7 @@ use OOWPrise\ServiceProvider\ServiceProviderInterface;
 /**
  * The theme service provider.
  */
-final class CommentServiceProvider implements ServiceProviderInterface {
+final class CommentsServiceProvider implements ServiceProviderInterface {
 
 	/**
 	 * @inheritDoc

@@ -23,7 +23,7 @@ final class ServiceProviderConfig {
 		\App\Customizer\CustomizerServiceProvider::class,
 		\App\CPT\CPTServiceProvider::class,
 		\App\WordPress\ThemeServiceProvider::class,
-		\App\WordPress\CommentServiceProvider::class,
+		\App\WordPress\CommentsServiceProvider::class,
 	];
 
 	/**

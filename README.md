@@ -1,8 +1,8 @@
 # OOWPrise
 OOWPrise is a WordPress starter theme that heavily employs object-oriented programming techniques and modern WordPress tools.
 
-[![Packagist](https://img.shields.io/packagist/v/gturpin/oowprise.svg?style=flat-square&colorB=blue)](https://packagist.org/packages/gturpin/oowprise?color=red)
-[![Packagist](https://img.shields.io/packagist/dt/gturpin/oowprise.svg?style=flat-square&label=projects%20created&colorB=blue)](https://packagist.org/packages/gturpin/oowprise)
+[![Packagist](https://img.shields.io/packagist/v/gturpin/oowprise.svg?style=flat-square&label=Latest%20Version&colorB=blue)](https://packagist.org/packages/gturpin/oowprise?color=red)
+[![Packagist](https://img.shields.io/packagist/dt/gturpin/oowprise.svg?style=flat-square&label=Projects%20Created&colorA=fc363b&colorB=c42b2f)](https://packagist.org/packages/gturpin/oowprise)
 
 <p align="center">
   <img width="300" src="./screenshot.png" alt="OOWPrise Logo">

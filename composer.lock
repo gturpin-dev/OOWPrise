@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "af448eb22dd15a2a7cbe02961cac0942",
+    "content-hash": "1c47ef552eceb651015eea6b1952fa1e",
     "packages": [
         {
             "name": "gturpin/post-type-handler",

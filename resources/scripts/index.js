@@ -1,7 +1,6 @@
-import $ from 'jquery';
-import '../styles/index.scss';
+import '../styles/styles.scss';
 
 // To replace by your own code
-$.on( 'load', () => {
+window.addEventListener( 'load', () => {
   console.log( 'Hello World' );
 } );

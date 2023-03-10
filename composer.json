@@ -3,7 +3,7 @@
   "name": "gturpin-dev/oowprise",
   "type": "wordpress-theme",
   "description": "OOWPrise is a WordPress starter theme that heavily employs object-oriented programming techniques.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "keywords": [
     "wordpress",
     "theme",
@@ -31,5 +31,6 @@
   "require-dev": {
     "vimeo/psalm": "^4",
     "humanmade/psalm-plugin-wordpress": "^2.1"
-  }
+  },
+  "minimum-stability": "dev"
 }

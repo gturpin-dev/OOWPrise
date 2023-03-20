@@ -34,14 +34,14 @@ clean: ## Remove all generated files
 	rm -rf vendor
 
 ##### Theme Assets #####
-start\:theme: ## Watch CSS/JS assets for development
-	npm run start:theme
+watch\:theme: ## Watch CSS/JS assets for development
+	npm run watch:theme
 
 build\:theme: ## Build CSS/JS assets for production
 	npm run build:theme
 
-start\:blocks: ## Watch blocks for development
-	npm run start:blocks
+watch\:blocks: ## Watch blocks for development
+	npm run watch:blocks
 
 build\:blocks: ## Build blocks for production
 	npm run build:blocks

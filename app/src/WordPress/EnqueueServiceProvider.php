@@ -2,6 +2,7 @@
 
 namespace App\WordPress;
 
+use OOWPrise\Theme;
 use OOWPrise\WordPress\AssetsEnqueue;
 use OOWPrise\ServiceProvider\ServiceProviderInterface;
 
@@ -18,10 +19,26 @@ final class EnqueueServiceProvider implements ServiceProviderInterface {
 	private AssetsEnqueue $assets_enqueuer;
 
 	/**
+	 * The theme's path.
+	 *
+	 * @var string
+	 */
+	private string $theme_path;
+
+	/**
+	 * The theme's URL.
+	 *
+	 * @var string
+	 */
+	private string $theme_url;
+
+	/**
 	 * @inheritDoc
 	 */
 	public function register(): void {
 		$this->assets_enqueuer = AssetsEnqueue::get_instance();
+		$this->theme_path      = Theme::get_instance()->get_path();
+		$this->theme_url       = Theme::get_instance()->get_url();
 	}
 
 	/**
@@ -44,16 +61,16 @@ final class EnqueueServiceProvider implements ServiceProviderInterface {
 
 		$this->assets_enqueuer->add_script(
 			'app',
-			get_template_directory_uri() . '/build/theme/index.js',
+			$this->theme_url . '/build/theme/index.js',
 			$asset['dependencies'] ?? [],
-			filemtime( get_template_directory() . '/build/theme/index.js' ),
+			filemtime( $this->theme_path . '/build/theme/index.js' ),
 			true
 		);
 		$this->assets_enqueuer->add_stylesheet(
 			'app',
-			get_template_directory_uri() . '/build/theme/index.css',
+			$this->theme_url . '/build/theme/index.css',
 			[],
-			filemtime( get_template_directory() . '/build/theme/index.css' ),
+			filemtime( $this->theme_path . '/build/theme/index.css' ),
 		);
 	}
 
@@ -67,17 +84,17 @@ final class EnqueueServiceProvider implements ServiceProviderInterface {
 
 		$this->assets_enqueuer->add_editor_script(
 			'app-editor',
-			get_template_directory_uri() . '/build/theme/editor.js',
+			$this->theme_url . '/build/theme/editor.js',
 			$editor_asset['dependencies'] ?? [],
-			filemtime( get_template_directory() . '/build/theme/editor.js' ),
+			filemtime( $this->theme_path . '/build/theme/editor.js' ),
 			true
 		);
 
 		$this->assets_enqueuer->add_editor_stylesheet(
 			'app-editor',
-			get_template_directory_uri() . '/build/theme/editor.css',
+			$this->theme_url . '/build/theme/editor.css',
 			[],
-			filemtime( get_template_directory() . '/build/theme/editor.css' ),
+			filemtime( $this->theme_path . '/build/theme/editor.css' ),
 		);
 	}
 }

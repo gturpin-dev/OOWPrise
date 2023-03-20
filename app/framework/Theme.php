@@ -69,8 +69,8 @@ final class Theme {
 
 		$this->slug       = get_template();
 		$this->theme_data = wp_get_theme( $this->slug );
-		$this->path       = get_template_directory();
-		$this->url        = get_template_directory_uri();
+		$this->path       = get_stylesheet_directory();
+		$this->url        = get_stylesheet_directory_uri();
 		$this->boot();
 	}
 

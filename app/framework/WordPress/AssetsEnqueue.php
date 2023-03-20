@@ -38,9 +38,9 @@ class AssetsEnqueue extends Singleton {
 	 */
 	public function add_script( string $handle, string $src, array $deps = [], string $version = '', bool $in_footer = true ): void {
 		$this->scripts[ $handle ] = [
-			'src'      => $src,
-			'deps'     => $deps,
-			'version'  => $version,
+			'src'       => $src,
+			'deps'      => $deps,
+			'version'   => $version,
 			'in_footer' => $in_footer,
 		];
 	}
@@ -68,9 +68,9 @@ class AssetsEnqueue extends Singleton {
 	 */
 	public function add_editor_script( string $handle, string $src, array $deps = [], string $version = '', bool $in_footer = true ): void {
 		$this->editor_scripts[ $handle ] = [
-			'src'      => $src,
-			'deps'     => $deps,
-			'version'  => $version,
+			'src'       => $src,
+			'deps'      => $deps,
+			'version'   => $version,
 			'in_footer' => $in_footer,
 		];
 	}
@@ -83,10 +83,10 @@ class AssetsEnqueue extends Singleton {
 	 */
 	public function add_editor_stylesheet( string $handle, string $src, array $deps = [], string $version = '', string $media = 'all' ): void {
 		$this->editor_stylesheets[ $handle ] = [
-			'src'      => $src,
-			'deps'     => $deps,
-			'version'  => $version,
-			'media'    => $media,
+			'src'     => $src,
+			'deps'    => $deps,
+			'version' => $version,
+			'media'   => $media,
 		];
 	}
 

@@ -24,6 +24,7 @@ final class ServiceProviderConfig {
 		\App\WordPress\ThemeServiceProvider::class,
 		\App\WordPress\CommentsServiceProvider::class,
 		\App\WordPress\EnqueueServiceProvider::class,
+		\App\API\APIServiceProvider::class,
 	];
 
 	/**

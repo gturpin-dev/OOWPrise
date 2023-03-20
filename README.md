@@ -52,11 +52,11 @@ make server:stop
 To build assets, you can use the following commands :
 
 ```sh
-npm run start:theme # Watch CSS/JS assets for development
+npm run watch:theme # Watch CSS/JS assets for development
 npm run build:theme # Build CSS/JS assets for production
 
 # Or with the provided Makefile
-make start:theme
+make watch:theme
 make build:theme
 ```
 
@@ -78,11 +78,11 @@ This command will create a new block in the `resources/blocks` directory. Refer 
 To build your block, you can use the following command :
 
 ```sh
-npm run start:blocks # Watch blocks for development
+npm run watch:blocks # Watch blocks for development
 npm run build:blocks # Build blocks for production
 
 # Or with the provided Makefile
-make start:blocks
+make watch:blocks
 make build:blocks
 ```
 

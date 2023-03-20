@@ -7,10 +7,10 @@ use OOWPrise\Helpers\Singleton;
 /**
  * This class aims to provide a simple way to enqueue scripts and styles.
  */
-class AssetsEnqueuer extends Singleton {
-	private array $scripts = [];
-	private array $stylesheets = [];
-	private array $editor_scripts = [];
+class AssetsEnqueue extends Singleton {
+	private array $scripts            = [];
+	private array $stylesheets        = [];
+	private array $editor_scripts     = [];
 	private array $editor_stylesheets = [];
 
 	/**
@@ -20,10 +20,10 @@ class AssetsEnqueuer extends Singleton {
 	 * @return void
 	 */
 	public function register() {
-		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_stylesheets' ] );
-		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_editor_scripts' ] );
-		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_editor_stylesheets' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'register_stylesheets' ] );
+		add_action( 'enqueue_block_editor_assets', [ $this, 'register_editor_scripts' ] );
+		add_action( 'enqueue_block_editor_assets', [ $this, 'register_editor_stylesheets' ] );
 	}
 
 	/**
@@ -31,12 +31,12 @@ class AssetsEnqueuer extends Singleton {
 	 */
 
 	/**
-	 * Register a script on front-end.
+	 * Add a script on front-end.
 	 * @see https://developer.wordpress.org/reference/functions/wp_register_script/
 	 *
 	 * @return void
 	 */
-	public function register_script( string $handle, string $src, array $deps = [], string $version = '', bool $in_footer = true ): void {
+	public function add_script( string $handle, string $src, array $deps = [], string $version = '', bool $in_footer = true ): void {
 		$this->scripts[ $handle ] = [
 			'src'      => $src,
 			'deps'     => $deps,
@@ -46,12 +46,12 @@ class AssetsEnqueuer extends Singleton {
 	}
 
 	/**
-	 * Register a stylesheet on front-end.
+	 * Add a stylesheet on front-end.
 	 * @see https://developer.wordpress.org/reference/functions/wp_register_style/
 	 *
 	 * @return void
 	 */
-	public function register_stylesheet( string $handle, string $src, array $deps = [], string $version = '', string $media = 'all' ): void {
+	public function add_stylesheet( string $handle, string $src, array $deps = [], string $version = '', string $media = 'all' ): void {
 		$this->stylesheets[ $handle ] = [
 			'src'      => $src,
 			'deps'     => $deps,
@@ -61,12 +61,12 @@ class AssetsEnqueuer extends Singleton {
 	}
 
 	/**
-	 * Register a script on editor.
+	 * Add a script on editor.
 	 * @see https://developer.wordpress.org/reference/functions/wp_register_script/
 	 *
 	 * @return void
 	 */
-	public function register_editor_script( string $handle, string $src, array $deps = [], string $version = '', bool $in_footer = true ): void {
+	public function add_editor_script( string $handle, string $src, array $deps = [], string $version = '', bool $in_footer = true ): void {
 		$this->editor_scripts[ $handle ] = [
 			'src'      => $src,
 			'deps'     => $deps,
@@ -76,12 +76,12 @@ class AssetsEnqueuer extends Singleton {
 	}
 
 	/**
-	 * Register a stylesheet on editor.
+	 * Add a stylesheet on editor.
 	 * @see https://developer.wordpress.org/reference/functions/wp_register_style/
 	 *
 	 * @return void
 	 */
-	public function register_editor_stylesheet( string $handle, string $src, array $deps = [], string $version = '', string $media = 'all' ): void {
+	public function add_editor_stylesheet( string $handle, string $src, array $deps = [], string $version = '', string $media = 'all' ): void {
 		$this->editor_stylesheets[ $handle ] = [
 			'src'      => $src,
 			'deps'     => $deps,
@@ -91,48 +91,48 @@ class AssetsEnqueuer extends Singleton {
 	}
 
 	/**
-	 * Enqueue scripts.
+	 * Register scripts.
 	 * @see https://developer.wordpress.org/reference/functions/wp_enqueue_script/
 	 *
 	 * @return void
 	 */
-	public function enqueue_scripts(): void {
+	public function register_scripts(): void {
 		foreach ( $this->scripts as $handle => $script ) {
 			wp_enqueue_script( $handle, $script['src'], $script['deps'], $script['version'], $script['in_footer'] );
 		}
 	}
 
 	/**
-	 * Enqueue stylesheets.
+	 * Register stylesheets.
 	 * @see https://developer.wordpress.org/reference/functions/wp_enqueue_style/
 	 *
 	 * @return void
 	 */
-	public function enqueue_stylesheets(): void {
+	public function register_stylesheets(): void {
 		foreach ( $this->stylesheets as $handle => $stylesheet ) {
 			wp_enqueue_style( $handle, $stylesheet['src'], $stylesheet['deps'], $stylesheet['version'], $stylesheet['media'] );
 		}
 	}
 
 	/**
-	 * Enqueue editor scripts.
+	 * Register editor scripts.
 	 * @see https://developer.wordpress.org/reference/functions/wp_enqueue_script/
 	 *
 	 * @return void
 	 */
-	public function enqueue_editor_scripts(): void {
+	public function register_editor_scripts(): void {
 		foreach ( $this->editor_scripts as $handle => $script ) {
 			wp_enqueue_script( $handle, $script['src'], $script['deps'], $script['version'], $script['in_footer'] );
 		}
 	}
 
 	/**
-	 * Enqueue editor stylesheets.
+	 * Register editor stylesheets.
 	 * @see https://developer.wordpress.org/reference/functions/wp_enqueue_style/
 	 *
 	 * @return void
 	 */
-	public function enqueue_editor_stylesheets(): void {
+	public function register_editor_stylesheets(): void {
 		foreach ( $this->editor_stylesheets as $handle => $stylesheet ) {
 			wp_enqueue_style( $handle, $stylesheet['src'], $stylesheet['deps'], $stylesheet['version'], $stylesheet['media'] );
 		}

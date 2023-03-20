@@ -2,7 +2,7 @@
 
 namespace App\WordPress;
 
-use OOWPrise\WordPress\AssetsEnqueuer;
+use OOWPrise\WordPress\AssetsEnqueue;
 use OOWPrise\ServiceProvider\ServiceProviderInterface;
 
 /**
@@ -13,15 +13,15 @@ final class EnqueueServiceProvider implements ServiceProviderInterface {
 	/**
 	 * The assets enqueuer.
 	 *
-	 * @var AssetsEnqueuer
+	 * @var AssetsEnqueue
 	 */
-	private AssetsEnqueuer $assets_enqueuer;
+	private AssetsEnqueue $assets_enqueuer;
 
 	/**
 	 * @inheritDoc
 	 */
 	public function register(): void {
-		$this->assets_enqueuer = AssetsEnqueuer::get_instance();
+		$this->assets_enqueuer = AssetsEnqueue::get_instance();
 	}
 
 	/**
@@ -42,15 +42,15 @@ final class EnqueueServiceProvider implements ServiceProviderInterface {
 	private function enqueue_front(): void {
 		$asset = require get_template_directory() . '/build/theme/index.asset.php';
 
-		$this->assets_enqueuer->register_script(
-			'app-script',
+		$this->assets_enqueuer->add_script(
+			'app',
 			get_template_directory_uri() . '/build/theme/index.js',
 			$asset['dependencies'] ?? [],
 			filemtime( get_template_directory() . '/build/theme/index.js' ),
 			true
 		);
-		$this->assets_enqueuer->register_stylesheet(
-			'app-style',
+		$this->assets_enqueuer->add_stylesheet(
+			'app',
 			get_template_directory_uri() . '/build/theme/index.css',
 			[],
 			filemtime( get_template_directory() . '/build/theme/index.css' ),
@@ -65,16 +65,16 @@ final class EnqueueServiceProvider implements ServiceProviderInterface {
 	private function enqueue_editor(): void {
 		$editor_asset = require get_template_directory() . '/build/theme/editor.asset.php';
 
-		$this->assets_enqueuer->register_editor_script(
-			'app-editor-script',
+		$this->assets_enqueuer->add_editor_script(
+			'app-editor',
 			get_template_directory_uri() . '/build/theme/editor.js',
 			$editor_asset['dependencies'] ?? [],
 			filemtime( get_template_directory() . '/build/theme/editor.js' ),
 			true
 		);
 
-		$this->assets_enqueuer->register_editor_stylesheet(
-			'app-editor-style',
+		$this->assets_enqueuer->add_editor_stylesheet(
+			'app-editor',
 			get_template_directory_uri() . '/build/theme/editor.css',
 			[],
 			filemtime( get_template_directory() . '/build/theme/editor.css' ),

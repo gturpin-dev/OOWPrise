@@ -25,7 +25,7 @@ composer install
 npm install
 
 # Or with the provided Makefile
-make install
+make init
 ```
 
 ## Usage

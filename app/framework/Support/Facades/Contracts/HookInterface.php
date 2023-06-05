@@ -1,6 +1,6 @@
 <?php
 
-namespace OOWPrise\Hook;
+namespace OOWPrise\Support\Facades\Contracts;
 
 /**
  * Interface that defines a hook for WordPress, can be either an action or a filter.
@@ -29,7 +29,7 @@ interface HookInterface {
 	*
 	* @return mixed
 	*/
-   public static function run( string $hook, $args = null ): mixed;
+   public static function run( string $hook, ...$args ): mixed;
 
    /**
 	* Remove a registered hook.

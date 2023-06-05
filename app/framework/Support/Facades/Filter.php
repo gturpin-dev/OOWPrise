@@ -1,6 +1,8 @@
 <?php
 
-namespace OOWPrise\Hook;
+namespace OOWPrise\Support\Facades;
+
+use OOWPrise\Support\Facades\Contracts\HookInterface;
 
 class Filter implements HookInterface {
 
@@ -28,8 +30,8 @@ class Filter implements HookInterface {
 	 *
 	 * @return mixed
 	 */
-	public static function run( string $hook, $args = null ): mixed {
-		return apply_filters( $hook, $args );
+	public static function run( string $hook, ...$args ): mixed {
+		return apply_filters( $hook, ...$args );
 	}
 
 	/**

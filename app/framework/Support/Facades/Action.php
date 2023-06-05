@@ -1,6 +1,8 @@
 <?php
 
-namespace OOWPrise\Hook;
+namespace OOWPrise\Support\Facades;
+
+use OOWPrise\Support\Facades\Contracts\HookInterface;
 
 class Action implements HookInterface {
 
@@ -28,8 +30,8 @@ class Action implements HookInterface {
 	 *
 	 * @return mixed
 	 */
-	public static function run( string $hook, $args = null ): mixed {
-		return do_action( $hook, $args );
+	public static function run( string $hook, ...$args ): mixed {
+		return do_action( $hook, ...$args );
 	}
 
 	/**

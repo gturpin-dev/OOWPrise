@@ -4,10 +4,9 @@ namespace OOWPrise\Support\Hook;
 
 use OOWPrise\Support\Facades\Action;
 use OOWPrise\Support\Facades\Filter;
-use OOWPrise\Support\Facades\Contracts\HookInterface;
 
 /**
- * @see HookInterface
+ * Parent class for all hooks defined with a class.
  */
 abstract class Hook {
 

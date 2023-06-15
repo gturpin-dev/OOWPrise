@@ -2,7 +2,9 @@
 
 namespace OOWPrise;
 
+use App\HookedClassesConfig;
 use App\ServiceProviderConfig;
+use OOWPrise\PHPAttributes\HookInterface;
 use OOWPrise\ServiceProvider\ServiceProviderManager;
 
 /**
@@ -80,7 +82,37 @@ final class Theme {
 	 * @return void
 	 */
 	private function boot(): void {
+		add_action( 'after_setup_theme', [ $this, 'register_hooked_classes' ] );
 		add_action( 'after_setup_theme', [ $this, 'instanciate_service_providers' ] );
+	}
+
+	/**
+	 * Bind all hooks defined in the hooked classes.
+	 *
+	 * @return void
+	 */
+	public function register_hooked_classes(): void {
+		$instances      = [];
+		$hooked_classes = HookedClassesConfig::get_hooked_classes();
+
+		foreach ( $hooked_classes as $hooked_class ) {
+			if ( array_key_exists( $hooked_class, $instances ) ) continue;
+
+			$reflection_class = new \ReflectionClass( $hooked_class );
+
+			foreach ( $reflection_class->getMethods() as $method ) {
+				$attributes = $method->getAttributes( HookInterface::class, \ReflectionAttribute::IS_INSTANCEOF );
+
+				foreach ( $attributes as $attribute ) {
+					// instanciate the hooked class
+					$hooked_class_instance = $instances[ $hooked_class ] ?? new $hooked_class();
+
+					// instanciate the hook_attribute class
+					$hook_attribute_class = $attribute->newInstance();
+					$hook_attribute_class->register( [ $hooked_class_instance, $method->getName() ] );
+				}
+			}
+		}
 	}
 
 	/**
